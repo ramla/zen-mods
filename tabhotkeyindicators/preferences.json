@@ -1,5 +1,17 @@
 [
     {
+        "property": "mod.tab_hotkey_hints.essentials",
+        "label": "Enabled for Essentials",
+        "type": "checkbox",
+        "defaultValue": true
+    },
+    {
+        "property": "mod.tab_hotkey_hints.last_tab",
+        "label": "Enabled on last tab",
+        "type": "checkbox",
+        "defaultValue": true
+    },
+    {
         "property": "mod.tab_hotkey_hints.font_size",
         "label": "Font size",
         "type": "string",
@@ -71,12 +83,6 @@
         "type": "string",
         "defaultValue": "8px",
         "placeholder": "8px"
-    },
-    {
-        "property": "mod.tab_hotkey_hints.essentials",
-        "label": "Enabled for Essentials",
-        "type": "checkbox",
-        "defaultValue": true
     },
     {
         "property": "mod.tab_hotkey_hints.position_essentials",
