@@ -1,0 +1,92 @@
+@counter-style blank {
+  system: cyclic;
+  symbols: "";
+}
+@counter-style tabhint {
+  system: fixed;
+  symbols: "1" "2" "3" "4" "5" "6" "7" "8";
+  suffix: "";
+  fallback: blank;
+}
+@counter-style last {
+  system: fixed;
+  symbols: "9";
+  suffix: "";
+}
+
+#TabsToolbar {
+  counter-reset: tabcounter;
+}
+/* :root:has(#mod-tab_hotkey_hints[mod-tab_hotkey_hints_essentials_enabled="true"]) {
+    *:not(.titlebar-buttonbox-container *) {font-family: cond-teko !important;}
+}
+@media (-moz-pref("mod.tab_hotkey_hints.essentials_enabled")) {} */
+
+@media not (-moz-pref("mod.tab_hotkey_hints.essentials")) {
+  #zen-essentials .tab-content::before {
+    display: none;
+  }
+}
+#tabbrowser-tabs {
+  #zen-essentials .tab-content,
+  zen-workspace[active="true"] tab[aria-hidden="true"][folder-active="true"] .tab-content,
+  zen-workspace[active="true"] tab:not([aria-hidden="true"]) .tab-content {
+    counter-increment: tabcounter;
+  }
+  .tab-content:nth-child(-n + 10)::before {
+    content: counter(tabcounter, tabhint);
+    z-index: 1;
+    font-size: var(--mod-tab_hotkey_hints-font_size);
+    font-weight: var(--mod-tab_hotkey_hints-font_weight);
+    position: absolute;
+    opacity: var(--mod-tab_hotkey_hints-opacity);
+    color: var(--mod-tab_hotkey_hints-color);
+    text-shadow: var(--mod-tab_hotkey_hints-text_shadow);
+    @media (-moz-pref("mod.tab_hotkey_hints.position", "topright")) {
+        right: var(--mod-tab_hotkey_hints-h_margin);
+        top: var(--mod-tab_hotkey_hints-v_margin);
+    }
+    @media (-moz-pref("mod.tab_hotkey_hints.position", "topleft")) {
+        left: var(--mod-tab_hotkey_hints-h_margin);
+        top: var(--mod-tab_hotkey_hints-v_margin);
+    }
+    @media (-moz-pref("mod.tab_hotkey_hints.position", "botright")) {
+        right: var(--mod-tab_hotkey_hints-h_margin);
+        bottom: var(--mod-tab_hotkey_hints-v_margin);
+    }
+    @media (-moz-pref("mod.tab_hotkey_hints.position", "botleft")) {
+        left: var(--mod-tab_hotkey_hints-h_margin);
+        bottom: var(--mod-tab_hotkey_hints-v_margin);
+    }
+  }
+}
+zen-workspace[active="true"] .zen-workspace-normal-tabs-section tab:last-child  {
+  counter-reset: lastcounter;
+  .tab-content::before {
+    counter-increment: lastcounter;
+    content: counter(lastcounter, last);
+    display: block;
+    font-size: var(--mod-tab_hotkey_hints-font_size);
+    font-weight: var(--mod-tab_hotkey_hints-font_weight);
+    position: absolute;
+    opacity: var(--mod-tab_hotkey_hints-opacity);
+    color: var(--mod-tab_hotkey_hints-color);
+    text-shadow: var(--mod-tab_hotkey_hints-text_shadow);
+    @media (-moz-pref("mod.tab_hotkey_hints.position", "topright")) {
+        right: var(--mod-tab_hotkey_hints-h_margin);
+        top: var(--mod-tab_hotkey_hints-v_margin);
+    }
+    @media (-moz-pref("mod.tab_hotkey_hints.position", "topleft")) {
+        left: var(--mod-tab_hotkey_hints-h_margin);
+        top: var(--mod-tab_hotkey_hints-v_margin);
+    }
+    @media (-moz-pref("mod.tab_hotkey_hints.position", "botright")) {
+        right: var(--mod-tab_hotkey_hints-h_margin);
+        bottom: var(--mod-tab_hotkey_hints-v_margin);
+    }
+    @media (-moz-pref("mod.tab_hotkey_hints.position", "botleft")) {
+        left: var(--mod-tab_hotkey_hints-h_margin);
+        bottom: var(--mod-tab_hotkey_hints-v_margin);
+    }
+  }
+}
