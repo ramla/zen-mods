@@ -20,10 +20,14 @@
 }
 
 @media -moz-pref("mod.tab_hotkey_hints.last_tab") {
-  zen-workspace[active="true"]
-  tab:not([pinned]):not([aria-hidden="true"]):not([folder-active="true"]):nth-last-child(2)
+  zen-workspace[active="true"] .zen-workspace-tabs-section
+  > tab:not([pinned]):not([aria-hidden="true"]):not([folder-active="true"]):nth-last-child(2)
+  .tab-content::before,
+  zen-workspace[active="true"] tab-group:not(:has(~ tab))
+  tab:not([pinned]):not([aria-hidden="true"]):not([folder-active="true"]):nth-last-child(1)
   .tab-content::before {
     content: "9";
+    display: unset;
     z-index: 1;
     font-size: var(--mod-tab_hotkey_hints-font_size);
     font-weight: var(--mod-tab_hotkey_hints-font_weight);
@@ -49,10 +53,21 @@
     }
   }
 }
+@media not (-moz-pref("mod.tab_hotkey_hints.last_tab")) {
+  zen-workspace[active="true"] .zen-workspace-tabs-section
+  > tab:not([pinned]):not([aria-hidden="true"]):not([folder-active="true"]):nth-last-child(2)
+  .tab-content::before,
+  zen-workspace[active="true"] tab-group:not(:has(~ tab))
+  tab:not([pinned]):not([aria-hidden="true"]):not([folder-active="true"]):nth-last-child(1)
+  .tab-content::before {
+    display: none;
+  }
+}
+
 #tabbrowser-tabs {
-  #zen-essentials .tab-content,
-  zen-workspace[active="true"] tab[aria-hidden="true"][folder-active="true"] .tab-content,
-  zen-workspace[active="true"] tab:not([aria-hidden="true"]) .tab-content {
+  #zen-essentials tab,
+  zen-workspace[active="true"] tab[aria-hidden="true"][folder-active="true"]:not([style*="height: 0px"]),
+  zen-workspace[active="true"] tab:not([aria-hidden="true"]):not([style*="height: 0px"]) {
     counter-increment: tabcounter;
   }
   .tab-content::after {
