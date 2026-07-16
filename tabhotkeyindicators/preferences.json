@@ -9,7 +9,7 @@
         "property": "mod.tab_hotkey_hints.last_tab",
         "label": "Enabled on last tab",
         "type": "checkbox",
-        "defaultValue": true
+        "defaultValue": false
     },
     {
         "property": "mod.tab_hotkey_hints.font_size",
