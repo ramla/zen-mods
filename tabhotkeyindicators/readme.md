@@ -13,3 +13,8 @@ Adds number hints to tabs so you always know which hotkey to press.
 
 There is a measurable but unnoticeable performance impact to using this mod if you have VERY many tabs in the pinned section. Tested n=1000.
 
+Known issues:
+ * Collapsed sidebar has issues
+ * Last tab hint displays over other hints when tab count is small
+ * Subfolders
+
