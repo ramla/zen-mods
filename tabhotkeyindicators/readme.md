@@ -7,10 +7,8 @@ Adds number hints to tabs so you always know which hotkey to press.
     * size
     * font weight
     * shadow
+    * opacity
 - Choose number position
-    
-TODO - Performance considerations
+- Toggle for Essentials & last tab
 
-BUGS:
-* randomly once: folder closes and next tab number not go down suddenly [music tab]
-* split tabs were not accounted for
+There is a measurable but likely unnoticeable performance impact to using this mod. Tested with 1000 tabs on a workspace.
