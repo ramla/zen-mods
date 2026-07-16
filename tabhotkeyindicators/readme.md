@@ -11,4 +11,5 @@ Adds number hints to tabs so you always know which hotkey to press.
 - Choose number position
 - Toggle for Essentials & last tab
 
-There is a measurable but likely unnoticeable performance impact to using this mod. Tested with 1000 tabs on a workspace.
+There is a measurable but unnoticeable performance impact to using this mod if you have VERY many tabs in the pinned section. Tested n=1000.
+
